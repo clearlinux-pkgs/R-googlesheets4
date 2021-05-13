@@ -4,7 +4,7 @@
 #
 Name     : R-googlesheets4
 Version  : 0.3.0
-Release  : 1
+Release  : 2
 URL      : https://cran.r-project.org/src/contrib/googlesheets4_0.3.0.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/googlesheets4_0.3.0.tar.gz
 Summary  : Access Google Sheets using the Sheets API V4
@@ -12,8 +12,11 @@ Group    : Development/Tools
 License  : MIT
 Requires: R-cellranger
 Requires: R-curl
+Requires: R-gargle
 Requires: R-glue
+Requires: R-googledrive
 Requires: R-httr
+Requires: R-ids
 Requires: R-lifecycle
 Requires: R-magrittr
 Requires: R-purrr
@@ -49,10 +52,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1620236583
+export SOURCE_DATE_EPOCH=1620924196
 
 %install
-export SOURCE_DATE_EPOCH=1620236583
+export SOURCE_DATE_EPOCH=1620924196
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
