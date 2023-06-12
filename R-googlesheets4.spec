@@ -4,10 +4,10 @@
 # Using build pattern: R
 #
 Name     : R-googlesheets4
-Version  : 1.1.0
-Release  : 12
-URL      : https://cran.r-project.org/src/contrib/googlesheets4_1.1.0.tar.gz
-Source0  : https://cran.r-project.org/src/contrib/googlesheets4_1.1.0.tar.gz
+Version  : 1.1.1
+Release  : 13
+URL      : https://cran.r-project.org/src/contrib/googlesheets4_1.1.1.tar.gz
+Source0  : https://cran.r-project.org/src/contrib/googlesheets4_1.1.1.tar.gz
 Summary  : Access Google Sheets using the Sheets API V4
 Group    : Development/Tools
 License  : MIT
@@ -53,17 +53,19 @@ BuildRequires : buildreq-R
 
 %prep
 %setup -q -n googlesheets4
-cd %{_builddir}/googlesheets4
+pushd ..
+cp -a googlesheets4 buildavx2
+popd
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1679674860
+export SOURCE_DATE_EPOCH=1686607920
 
 %install
-export SOURCE_DATE_EPOCH=1679674860
+export SOURCE_DATE_EPOCH=1686607920
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -101,6 +103,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
 R CMD check --no-manual --no-examples --no-codoc . || :
 
+/usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot} %{buildroot}/usr/share/clear/filemap/filemap-%{name}
 
 %files
 %defattr(-,root,root,-)
