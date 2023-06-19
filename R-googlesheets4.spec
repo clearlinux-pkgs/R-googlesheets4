@@ -5,7 +5,7 @@
 #
 Name     : R-googlesheets4
 Version  : 1.1.1
-Release  : 13
+Release  : 14
 URL      : https://cran.r-project.org/src/contrib/googlesheets4_1.1.1.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/googlesheets4_1.1.1.tar.gz
 Summary  : Access Google Sheets using the Sheets API V4
